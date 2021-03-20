@@ -22,11 +22,14 @@
 //     console.log(data);
 //   });
 
-var nutrients = fetch('https://api.edamam.com/api/food-database/v2/parser?upc=051000012616&app_id=e5a14e07&app_key=6caa294ca6183b8a7cad61a11140987b')
+var nutrients = {}
+
+fetch('https://api.edamam.com/api/food-database/v2/parser?upc=051000012616&app_id=e5a14e07&app_key=6caa294ca6183b8a7cad61a11140987b')
 .then(function(response){
   return response.json()
 })
 .then(function(data){
   console.log(data.hints[0].food.nutrients)
+  nutrients = data.hints[0].food.nutrients
 })
 
